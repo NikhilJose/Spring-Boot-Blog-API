@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springboot.blog</groupId>
-	<artifactId>springboot-blog-rest-api</artifactId>
+	<artifactId>springboot-blog-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-blog-rest-api</name>
+	<name>springboot-blog-api</name>
 	<description>Spring Boot blog application rest api&apos;s</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -46,6 +46,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.2</version>
 		</dependency>
 	</dependencies>
 
