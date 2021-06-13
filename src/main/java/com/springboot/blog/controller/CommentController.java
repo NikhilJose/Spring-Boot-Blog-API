@@ -21,27 +21,27 @@ public class CommentController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/posts/{postId}/createComment")
+    @PostMapping("/posts/{postId}/comments")
     public ResponseEntity<CommentDto> createComment(@Valid @RequestBody CommentDto commentDto, @PathVariable(value = "postId") long postId) {
         return new ResponseEntity<>(commentService.createComment(postId, commentDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/posts/{postId}/getComments")
+    @GetMapping("/posts/{postId}/comments")
     public ResponseEntity<List<CommentDto>> getCommentsByPostId(@PathVariable(value = "postId") long postId) {
         return new ResponseEntity<>(commentService.getCommentsByPostId(postId), HttpStatus.OK);
     }
 
-    @GetMapping("/posts/{postId}/getComments/{commentId}")
+    @GetMapping("/posts/{postId}/comments/{commentId}")
     public ResponseEntity<CommentDto> getCommentsByCommentId(@PathVariable(value = "postId") long postId, @PathVariable(value = "commentId") long commentId) {
         return new ResponseEntity<>(commentService.getCommentByCommentId(postId, commentId), HttpStatus.OK);
     }
 
-    @PutMapping("/posts/{postId}/getComments/{commentId}")
+    @PutMapping("/posts/{postId}/comments/{commentId}")
     public ResponseEntity<CommentDto> updateComment(@Valid @RequestBody CommentDto commentDto, @PathVariable(value = "postId") long postId, @PathVariable(value = "commentId") long commentId) {
         return new ResponseEntity<>(commentService.updateComment(postId, commentId, commentDto), HttpStatus.OK);
     }
 
-    @DeleteMapping("/posts/{postId}/getComments/{commentId}")
+    @DeleteMapping("/posts/{postId}/comments/{commentId}")
     public ResponseEntity<String> deleteComment(@PathVariable(value = "postId") long postId, @PathVariable(value = "commentId") long commentId) {
         commentService.deleteComment(postId, commentId);
         return new ResponseEntity<>("Comment deleted successfully", HttpStatus.OK);
